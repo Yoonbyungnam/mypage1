@@ -15,9 +15,7 @@
     <title>스파르타 피디아</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <script src="prac.js"></script>
-    <script src="mise.js"></script>
-
+   
     <style>
         * {
             font-family: 'Gowun Dodum', sans-serif;
@@ -93,6 +91,37 @@
                     let temp = data['temp']
                     $('#temp').text(temp)
                 })
+            fetch('http://spartacodingclub.shop/web/api/movie').then(response => response.json()).then(data => {
+                    // console.log(data)
+                    let movies = data['movies']  
+                    $('#cards').empty()
+                    movies.forEach(movie => {
+                        //console.log(movie)
+                        let title = movie['title']
+                        let image = movie['image']
+                        let desc = movie['desc']
+                        let star = movie['star']
+                        let comment = movie['comment']
+
+                        let star_image = '⭐'.repeat(star)
+
+                        let temp_html = `<div class="col">
+                                            <div class="card h-100">
+                                                <img src="${image}"
+                                                     class="card-img-top">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${title}</h5>
+                                                    <p class="card-text">${desc}</p>
+                                                    <p>${star_image}</p>
+                                                    <p class="mycomment">${comment}</p>
+                                                </div>
+                                            </div>
+                                        </div>`
+
+                        $('#cards').append(temp_html)
+
+                    })
+                })
         })
     </script>
 </head>
@@ -130,59 +159,57 @@
     </div>
 </div>
 <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjJfMjA1%2FMDAxNjYxMTc0Nzk4ODc0.dNylg5JXWvZqp97Y1s3CxGg8YPjl3Pzqp_lm2cNcjLUg.2oXj2VtWWVpcMKe1jkQrl6ET1kwFTorA7v3nP1kFAvog.JPEG.happyevermom%2F%25C0%25CC%25B9%25CC%25C1%25F6_002.jpg&type=a340"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">인터스텔라</h5>
-                        <p class="card-text">매튜 맥커너히, 앤 해서웨이</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p class="mycomment">나의 인생 띵작!!! 우주에서의 사랑!!</p>
-                    </div>
+    <div id="cards" class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA2MTRfMjcz%2FMDAxNjU1MTc3Mjk1ODUy.Bh-0hTV-avRqJ7Fxt5Nc6xDe18z8IOuZcKLNgnioBnIg.rYLLp-AvqCnZtTmJTh7pY79WpQ7F5j3T69QwfB3pH0Ig.PNG.minojjang9%2Fimage.png&type=a340"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">해리포터 시리즈 </h5>
-                        <p class="card-text">다니엘 래드클리프 , 엠마왓슨</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p class="mycomment">해리포터 모르는 사람 없쥬!?</p>
-                    </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODEyMjVfNzYg%2FMDAxNTQ1NzQ2NTcwNjI3.IxbXoLj-Y7arUTU76WQ3ZxSnyTV_4Wqn6A7jJq0fh84g.6an3BkLZCtfuIzelY_bRJWucApqZaQGT2epo6xgee9wg.JPEG.sky5550404%2FAbout-Time-poster1.jpg&type=a340"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">어바웃 타임</h5>
-                        <p class="card-text">도널 글리슨, 레이첼 맥 아담스</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p class="mycomment">시간을 돌리는 남자!!</p>
-                    </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160202_183%2Fome07_145441708525343jcI_JPEG%2Fthe-intern-.jpg&type=a340"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">인턴</h5>
-                        <p class="card-text">앤 해서웨이, 로버트 드 니로</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p class="mycomment">나이는 숫자에 불과하다</p>
-                    </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
-
-
